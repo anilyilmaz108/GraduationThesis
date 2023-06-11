@@ -1,0 +1,29 @@
+import 'package:flutter/material.dart';
+
+class MyRaisedButton extends StatelessWidget {
+  final Widget? child;
+  final Color? color;
+  final VoidCallback? onPressed;
+
+  const MyRaisedButton(
+      {@required this.color, @required this.onPressed, @required this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 50,
+      width: 300,
+      // ignore: deprecated_member_use
+      child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: color,
+            disabledBackgroundColor: color?.withOpacity(0.8),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10)))
+          ),
+          onPressed: onPressed,
+          child: child,
+          ),
+    );
+  }
+}
